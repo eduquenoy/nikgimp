@@ -380,7 +380,7 @@ def run_nik(prog_idx: int, images: List[Gimp.Image]) -> Optional[str]:
 
         # Run the external program
         if sys.platform == "darwin":
-            prog_caller = ["open", "-a"]
+            prog_caller = ["open", "-W", "-a"] # MacOs don't wait program terminaison, need to force them
         elif sys.platform == "linux":
             prog_caller = ["wine"]
         else:  # windows
